@@ -1,0 +1,7 @@
+build:
+  docker:
+    web: Dockerfile
+release:
+  image: web
+run:
+  web: gunicorn student_management_system.wsgi --workers 4
