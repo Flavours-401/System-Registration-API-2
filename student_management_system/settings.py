@@ -46,7 +46,6 @@ DEBUG = env.bool("DEBUG")
 ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
 
 
-
 # end work node21
 
 #ALLOWED_HOSTS = []
@@ -114,7 +113,7 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
-     "default": {
+    "default": {
         "ENGINE": env.str("DATABASE_ENGINE"),
         "NAME": env.str("DATABASE_NAME"),
         "USER": env.str("DATABASE_USER"),
@@ -178,7 +177,7 @@ USE_TZ = True
 # AUTHENTICATION_BACKENDS = ['student_management_app.EmailBackEnd.EmailBackEnd']
 
 
-#-------------------
+# -------------------
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -192,7 +191,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-#For Custom USER
+# For Custom USER
 AUTH_USER_MODEL = "student_management_app.CustomUser"
 
 # Registering Custom Backend "EmailBackEnd"
