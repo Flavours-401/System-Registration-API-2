@@ -10,9 +10,9 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
 )
-from .models import CustomUser, AdminHOD, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, LeaveReportStaff, FeedBackStudent, FeedBackStaffs, NotificationStudent, NotificationStaffs, SessionYearModel
+from .models import  Courses2,Subjects2, CustomUser, AdminHOD, Staffs,Staffs2, Courses, Subjects, Students,students2, Attendance, AttendanceReport, LeaveReportStudent, LeaveReportStaff, FeedBackStudent, FeedBackStaffs, NotificationStudent, NotificationStaffs, SessionYearModel
 from .permissions import IsOwnerOrReadOnly
-from .serializer import student_management_Serializer, Admin_HOD_Serializer, Staff_Serializer, Course_Serializer, Subject_Serializer, Student_Serializer, Attendance_Serializer, Attendance_Report_Serializer, Leave_Student_Report_Serializer, Leave_Staff_Report_Serializer, Feedback_Student_Serializer, Feedback_Staff_Serializer, Notification_Student_Serializer, Notification_Staffs_Serializer, SessionYearModel_Serializer
+from .serializer import Course2_Serializer,Subject2_Serializer, student_management_Serializer, Student2_Serializer,Admin_HOD_Serializer, Staff_Serializer, Course_Serializer, Subject_Serializer, Student_Serializer, Attendance_Serializer, Attendance_Report_Serializer, Leave_Student_Report_Serializer, Leave_Staff_Report_Serializer, Feedback_Student_Serializer, Feedback_Staff_Serializer, Notification_Student_Serializer, Notification_Staffs_Serializer, SessionYearModel_Serializer, Staff2_Serializer
 
 
 class CustomUserList(ListCreateAPIView):
@@ -40,12 +40,21 @@ class AdminHODListDetail(RetrieveUpdateDestroyAPIView):
 class StaffsList(ListCreateAPIView):
     queryset = Staffs.objects.all()
     serializer_class = Staff_Serializer
+    
+class Staffs2List(ListCreateAPIView):
+    queryset = Staffs2.objects.all()
+    serializer_class = Staff2_Serializer
 
 
 class StaffsListDetail(RetrieveUpdateDestroyAPIView):
     # permission_classes = (IsOwnerOrReadOnly,)
     queryset = Staffs.objects.all()
     serializer_class = Staff_Serializer
+
+class Staffs2ListDetail(RetrieveUpdateDestroyAPIView):
+    # permission_classes = (IsOwnerOrReadOnly,)
+    queryset = Staffs2.objects.all()
+    serializer_class = Staff2_Serializer
 
 
 class CoursesDetail(RetrieveUpdateDestroyAPIView):
@@ -68,6 +77,27 @@ class SubjectsDetail(RetrieveUpdateDestroyAPIView):
 class SubjectsList(ListCreateAPIView):
     queryset = Subjects.objects.all()
     serializer_class = Subject_Serializer
+    
+class Courses2Detail(RetrieveUpdateDestroyAPIView):
+    # permission_classes = (IsOwnerOrReadOnly,)
+    queryset = Courses2.objects.all()
+    serializer_class = Course2_Serializer
+
+
+class Courses2List(ListCreateAPIView):
+    queryset = Courses2.objects.all()
+    serializer_class = Course2_Serializer
+
+
+class Subjects2Detail(RetrieveUpdateDestroyAPIView):
+    # permission_classes = (IsOwnerOrReadOnly,)
+    queryset = Subjects2.objects.all()
+    serializer_class = Subject2_Serializer
+
+
+class Subjects2List(ListCreateAPIView):
+    queryset = Subjects2.objects.all()
+    serializer_class = Subject2_Serializer
 
 
 class StudentsDetail(RetrieveUpdateDestroyAPIView):
@@ -79,6 +109,16 @@ class StudentsDetail(RetrieveUpdateDestroyAPIView):
 class StudentsList(ListCreateAPIView):
     queryset = Students.objects.all()
     serializer_class = Student_Serializer
+    
+class Students2Detail(RetrieveUpdateDestroyAPIView):
+    # permission_classes = (HasAdminOrReadOnly,)
+    queryset = students2.objects.all()
+    serializer_class = Student2_Serializer
+
+
+class Students2List(ListCreateAPIView):
+    queryset = students2.objects.all()
+    serializer_class = Student2_Serializer
 
 
 class SessionYearDetail(RetrieveUpdateDestroyAPIView):

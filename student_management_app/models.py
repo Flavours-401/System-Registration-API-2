@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.base import Model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
@@ -38,7 +39,16 @@ class Staffs(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
-
+    
+class Staffs2(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.TextField(default="", null=True, blank=True)
+    password = models.IntegerField(default=0)
+    first_name = models.CharField(max_length=265)
+    last_name = models.CharField(max_length=265)
+    address = models.TextField(default="", null=True, blank=True)
+    email = models.EmailField(max_length=20)
+    # objects = models.Manager()
 
 
 class Courses(models.Model):
@@ -47,9 +57,15 @@ class Courses(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
+    
+class Courses2(models.Model):
+    id = models.AutoField(primary_key=True)
+    course_name = models.CharField(max_length=255)
+    # created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
 
-    # def __str__(self):
-	#     return self.course_name
+    def __str__(self):
+	    return self.course_name
 
 
 
@@ -61,6 +77,13 @@ class Subjects(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
+
+class Subjects2(models.Model):
+    id =models.AutoField(primary_key=True)
+    subject_name = models.CharField(max_length=255)
+    course_name = models.TextField(default='') #need to give defauult course
+    staff = models.TextField(default='')
+ 
 
 
 
@@ -75,7 +98,24 @@ class Students(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
-
+    
+gender_choices=(
+        ('male','MALE'),
+        ('female','FEMALE'),
+    )
+class students2(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.TextField(default="", null=True, blank=True)
+    password = models.TextField(default="", null=True, blank=True)
+    first_name = models.CharField(max_length=265)
+    last_name = models.CharField(max_length=265)
+    address = models.TextField(default="", null=True, blank=True)
+    email = models.EmailField(max_length=20)
+    session_year = models.DateField 
+    course = models.TextField(default="", null=True, blank=True)
+    gender = models.CharField(max_length=200, choices=gender_choices, default='male')
+    profile_pic=models.FileField(default=False)
+    
 
 class Attendance(models.Model):
     # Subject Attendance

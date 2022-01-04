@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 from .import HodViews, StaffViews, StudentViews
-from .views import CustomUserList, CustomUserListDetail, AdminHODList, AdminHODListDetail, StaffsList, StaffsListDetail, CoursesDetail, CoursesList, SubjectsDetail, SubjectsList, StudentsDetail, StudentsList, AttendanceDetail, AttendanceList, AttendanceReportDetail, AttendanceReportList, LeaveReportStudentDetail, LeaveReportStudentList, LeaveReportStaffDetail, LeaveReportStaffList, FeedBackStudentDetail, FeedBackStudentList, FeedBackStaffsDetail, FeedBackStaffsList, NotificationStudentDetail, NotificationStudentList, NotificationStaffsDetail, NotificationStaffsList, SessionYearDetail, SessionYearList
+from .views import Subjects2List, Subjects2Detail ,Courses2Detail, Courses2List,CustomUserList,Students2Detail,Students2List, CustomUserListDetail, AdminHODList, AdminHODListDetail, StaffsList, StaffsListDetail, CoursesDetail, CoursesList, SubjectsDetail, SubjectsList, StudentsDetail, StudentsList, AttendanceDetail, AttendanceList, AttendanceReportDetail, AttendanceReportList, LeaveReportStudentDetail, LeaveReportStudentList, LeaveReportStaffDetail, LeaveReportStaffList, FeedBackStudentDetail, FeedBackStudentList, FeedBackStaffsDetail, FeedBackStaffsList, NotificationStudentDetail, NotificationStudentList, NotificationStaffsDetail, NotificationStaffsList, SessionYearDetail, SessionYearList , Staffs2ListDetail , Staffs2List
 
 urlpatterns = [
     path("custom_user_list/", CustomUserList.as_view(), name="_customUserList"),
@@ -15,15 +15,37 @@ urlpatterns = [
     path("staff_list/", StaffsList.as_view(), name="StaffsList"),
     path("staff_list/<int:pk>/", StaffsListDetail.as_view(),
          name="StaffsListDetail"),
+    
+    path("staff_list2/", Staffs2List.as_view(), name="StaffsList2"),
+    path("staff_list2/<int:pk>/", Staffs2ListDetail.as_view(),
+         name="StaffsListDetail2"),
 
     path("course_list/", CoursesList.as_view(), name="CoursesList"),
     path("course_list/<int:pk>/", CoursesDetail.as_view(), name="CoursesDetail"),
 
     path("subject_list/", SubjectsList.as_view(), name="SubjectsList"),
     path("subject_list/<int:pk>/", SubjectsDetail.as_view(), name="SubjectsDetail"),
+    
+    
+    path("course_list2/", Courses2List.as_view(), name="CoursesList2"),
+    path("course_list2/<int:pk>/", Courses2Detail.as_view(), name="CoursesDetail2"),
+
+    path("subject_list2/", Subjects2List.as_view(), name="SubjectsList2"),
+    path("subject_list2/<int:pk>/", Subjects2Detail.as_view(), name="SubjectsDetail2"),
+    
+    
 
     path("student_list/", StudentsList.as_view(), name="StudentsList"),
     path("student_list/<int:pk>/", StudentsDetail.as_view(), name="StudentsDetail"),
+    
+    path("student_list2/", Students2List.as_view(), name="StudentsList2"),
+    path("student_list2/<int:pk>/", Students2Detail.as_view(), name="StudentsDetail2"),
+    
+    
+    path("session_list/", SessionYearList.as_view(), name="SessionYearList"),
+    path("session_list/<int:pk>/", SessionYearDetail.as_view(), name="SessionYearDetail"),
+    
+    
 
     path("attedance_list/", AttendanceList.as_view(), name="AttendanceList"),
     path("attedance_list/<int:pk>/",
